@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход | Главстрой</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .login-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            width: 180px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+        
+        .login-title {
+            color: #002d63;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+        
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .form-label {
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .form-input {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .form-input:focus {
+            border-color: #002d63;
+            outline: none;
+        }
+        
+        .submit-button {
+            padding: 14px;
+            background-color: #002d63;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        .submit-button:hover {
+            background-color: #001f4a;
+        }
+        
+        .form-step {
+            display: none;
+        }
+        
+        .form-step.active {
+            display: block;
+        }
+        
+        .form-message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .form-error {
+            color: #d9534f;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+        
+        .back-link {
+            color: #002d63;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 15px;
+            text-align: center;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .resend-link {
+            color: #002d63;
+            text-decoration: none;
+            font-size: 13px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 10px;
+            text-align: center;
+        }
+        
+        .resend-link:hover {
+            text-decoration: underline;
+        }
+        
+        .info-message {
+            text-align: center;
+            color: #002d63;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .security-note {
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo-section">
+            <img src="glavstroy.jpg" alt="Главстрой" class="logo">
+            <h1 class="login-title">Вход в систему</h1>
+        </div>
+        
+        <!-- Шаг 1: Ввод email и индекса -->
+        <div class="form-step active" id="step1">
+            <div class="info-message">
+                Для входа требуется подтверждение по email
+            </div>
+            
+            <form class="login-form" id="loginForm1">
+                <div class="form-group">
+                    <label for="loginEmail" class="form-label">Электронная почта</label>
+                    <input type="email" id="loginEmail" class="form-input" placeholder="example@mail.ru" required>
+                    <div class="form-error" id="emailError"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginIndex" class="form-label">Индекс компании</label>
+                    <input type="text" id="loginIndex" class="form-input" placeholder="Введите ваш уникальный индекс" required>
+                    <div class="form-error" id="indexError"></div>
+                </div>
+                
+                <button type="submit" class="submit-button">Получить код подтверждения</button>
+            </form>
+            
+            <div class="security-note">
+                Система отправит код подтверждения на указанный email. 
+                Это необходимо для подтверждения вашей личности при каждом входе.
+            </div>
+        </div>
+        
+        <!-- Шаг 2: Подтверждение кода -->
+        <div class="form-step" id="step2">
+            <div class="info-message">
+                Код подтверждения отправлен на <span id="userEmailDisplay"></span>
+            </div>
+            
+            <form class="login-form" id="loginForm2">
+                <div class="form-group">
+                    <label for="loginCode" class="form-label">Код подтверждения</label>
+                    <input type="text" id="loginCode" class="form-input" placeholder="Введите 6-значный код" required>
+                    <div class="form-error" id="codeError"></div>
+                    <a href="#" class="resend-link" id="resendCode">Отправить код повторно</a>
+                </div>
+                
+                <button type="submit" class="submit-button">Войти</button>
+            </form>
+            
+            <a href="#" class="back-link" id="backToStep1">Изменить email или индекс</a>
+            
+            <div class="security-note">
+                Никому не сообщайте полученный код. Сотрудники Главстрой никогда не запрашивают ваш код подтверждения.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Элементы формы
+        const step1 = document.getElementById('step1');
+        const step2 = document.getElementById('step2');
+        const loginForm1 = document.getElementById('loginForm1');
+        const loginForm2 = document.getElementById('loginForm2');
+        const loginEmail = document.getElementById('loginEmail');
+        const loginIndex = document.getElementById('loginIndex');
+        const loginCode = document.getElementById('loginCode');
+        const emailError = document.getElementById('emailError');
+        const indexError = document.getElementById('indexError');
+        const codeError = document.getElementById('codeError');
+        const backToStep1 = document.getElementById('backToStep1');
+        const resendCode = document.getElementById('resendCode');
+        const userEmailDisplay = document.getElementById('userEmailDisplay');
+
+        // Переход между шагами
+        function goToStep(stepNumber) {
+            document.querySelectorAll('.form-step').forEach(step => {
+                step.classList.remove('active');
+            });
+            
+            if (stepNumber === 1) step1.classList.add('active');
+            if (stepNumber === 2) {
+                userEmailDisplay.textContent = loginEmail.value.trim();
+                step2.classList.add('active');
+            }
+        }
+
+        // Обработка отправки первого шага
+        loginForm1.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Валидация email
+            const email = loginEmail.value.trim();
+            if (!email || !email.includes('@') || !email.includes('.')) {
+                emailError.textContent = 'Введите корректный email';
+                return;
+            } else {
+                emailError.textContent = '';
+            }
+            
+            // Валидация индекса
+            const index = loginIndex.value.trim();
+            if (!index) {
+                indexError.textContent = 'Введите индекс компании';
+                return;
+            } else if (index.length < 6) {
+                indexError.textContent = 'Индекс должен содержать не менее 6 символов';
+                return;
+            } else {
+                indexError.textContent = '';
+            }
+            
+            // Здесь должна быть отправка данных на сервер
+            console.log('Запрос кода подтверждения:', { email, index });
+            
+            // Имитация отправки кода
+            setTimeout(() => {
+                goToStep(2);
+            }, 500);
+        });
+
+        // Обработка отправки второго шага
+        loginForm2.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const code = loginCode.value.trim();
+            if (!code || code.length !== 6) {
+                codeError.textContent = 'Введите 6-значный код';
+                return;
+            } else {
+                codeError.textContent = '';
+            }
+            
+            // Здесь должна быть проверка кода на сервере
+            console.log('Проверка кода:', code);
+            
+            // Имитация успешной проверки и входа
+            setTimeout(() => {
+                alert('Вход выполнен успешно! Перенаправление в личный кабинет...');
+                // В реальном приложении здесь будет редирект
+                // window.location.href = '/account';
+            }, 500);
+        });
+
+        // Обработчики кнопок
+        backToStep1.addEventListener('click', function(e) {
+            e.preventDefault();
+            goToStep(1);
+        });
+        
+        resendCode.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Имитация повторной отправки кода
+            console.log('Код отправлен повторно на', loginEmail.value.trim());
+            alert('Новый код подтверждения отправлен на вашу почту');
+        });
+    </script>
+</body>
+</html>
