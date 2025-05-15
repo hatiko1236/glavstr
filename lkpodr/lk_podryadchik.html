@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет | Главстрой</title>
+    <link href="lk_podryadchik.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="header">
+      <img src="GS SPb-white.png" alt="Главстрой" class="logo">
+        <div class="header-title">Личный кабинет</div>
+    </div>
+
+<div class="container">
+        <div class="section">
+            <div class="section-title">Информация о компании</div>
+            <div class="info-row"><div class="info-label">Полное название:</div><div class="info-value" id="fullName"></div><button class="edit-btn" onclick="editField('fullName')">✏️</button></div>
+            <div class="info-row"><div class="info-label">Сокращённое название:</div><div class="info-value" id="shortName"></div><button class="edit-btn" onclick="editField('shortName')">✏️</button></div>
+            <div class="info-row"><div class="info-label">ИНН:</div><div class="info-value" id="inn"></div><button class="edit-btn" onclick="editField('inn')">✏️</button></div>
+            <div class="info-row"><div class="info-label">КПП:</div><div class="info-value" id="kpp"></div><button class="edit-btn" onclick="editField('kpp')">✏️</button></div>
+            <div class="info-row"><div class="info-label">Идентификационный номер:</div><div class="info-value" id="companyId"></div><button class="edit-btn" onclick="editField('companyId')">✏️</button></div>
+            <div class="info-row"><div class="info-label">Дата основания:</div><div class="info-value" id="foundationDate"></div><button class="edit-btn" onclick="editField('foundationDate')">✏️</button></div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Контактное лицо</div>
+            <div class="info-row"><div class="info-label">ФИО:</div><div class="info-value" id="contactPerson"></div><button class="edit-btn" onclick="editField('contactPerson')">✏️</button></div>
+            <div class="info-row"><div class="info-label">Должность:</div><div class="info-value" id="contactPosition"></div><button class="edit-btn" onclick="editField('contactPosition')">✏️</button></div>
+            <div class="info-row"><div class="info-label">Email:</div><div class="info-value" id="contactEmail"></div><button class="edit-btn" onclick="editField('contactEmail')">✏️</button></div>
+            <div class="info-row"><div class="info-label">Телефон:</div><div class="info-value" id="contactPhone"></div><button class="edit-btn" onclick="editField('contactPhone')">✏️</button></div>
+            <div class="info-row"><div class="info-label">Почтовый адрес:</div><div class="info-value" id="contactAddress"></div><button class="edit-btn" onclick="editField('contactAddress')">✏️</button></div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Финансовая информация</div>
+            <div class="info-row"><div class="info-label">Выручка за 4 года (файл):</div><div class="info-value" id="revenueFile"></div><button class="edit-btn" onclick="uploadFile('revenueFile')">📁</button></div>
+            <div class="info-row"><div class="info-label">Актуальные предложения (файл):</div><div class="info-value" id="commercialOffer"></div><button class="edit-btn" onclick="uploadFile('commercialOffer')">📁</button></div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Юридическая информация</div>
+            <div class="info-row"><div class="info-label">Юридический адрес:</div><div class="info-value" id="legalAddress"></div><button class="edit-btn" onclick="editField('legalAddress')">✏️</button></div>
+            <div class="info-row"><div class="info-label">Форма налогообложения:</div><div class="info-value" id="taxForm"></div><button class="edit-btn" onclick="editField('taxForm')">✏️</button></div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Основной вид работ (ОКВЭД)</div>
+            <div class="info-row"><div class="info-value" id="okved"></div><button class="edit-btn" onclick="editField('okved')">✏️</button></div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Сотрудничество с ГС-СПБ</div>
+            <div class="info-row"><div class="info-label">Файл:</div><div class="info-value" id="gsCooperationFile"></div><button class="edit-btn" onclick="uploadFile('gsCooperationFile')">📁</button></div>
+        </div>
+    </div>
+    <script src="lk_podryadchik.js"></script> 
+</body>
+</html>

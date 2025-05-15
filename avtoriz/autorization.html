@@ -1,0 +1,174 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информация о компании | Главстрой</title>
+    <link href="css_autorization.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Информация о компании</h1>
+        
+        <form id="companyForm">
+            <!-- Основная информация -->
+            <div class="form-group">
+                <label for="fullName">Полное наименование компании</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="shortName">Сокращённое наименование</label>
+                <input type="text" id="shortName" name="shortName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="companyId">Идентификационный номер</label>
+                <input type="text" id="companyId" name="companyId" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="foundationDate">Дата основания</label>
+                <input type="date" id="foundationDate" name="foundationDate">
+            </div>
+            
+            <!-- Контактное лицо -->
+            <div class="form-group">
+                <div class="section-title">Контактное лицо</div>
+                
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="contactPerson">ФИО</label>
+                            <input type="text" id="contactPerson" name="contactPerson" required>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="contactPosition">Должность</label>
+                            <input type="text" id="contactPosition" name="contactPosition" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" id="contactEmail" name="contactEmail" required>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="contactPhone">Телефон</label>
+                            <input type="tel" id="contactPhone" name="contactPhone" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contactAddress">Почтовый адрес</label>
+                    <input type="text" id="contactAddress" name="contactAddress" required>
+                </div>
+            </div>
+            
+            <!-- Финансовая информация -->
+            <div class="form-group">
+                <div class="section-title">Финансовая информация</div>
+                
+                <div class="form-group">
+                    <label>Выручка за последние 4 года </label>
+                    <div class="file-upload">
+                        <label for="revenueFile" class="file-label">Выберите файл Excel</label>
+                        <input type="file" id="revenueFile" name="revenueFile" accept=".xlsx,.xls">
+                        <span class="file-name" id="revenueFileName">Файл не выбран</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Актуальные коммерческие предложения</label>
+                    <div class="file-upload">
+                        <label for="commercialOffer" class="file-label">Добавить файл Excel</label>
+                        <input type="file" id="commercialOffer" name="commercialOffer" accept=".xlsx,.xls">
+                        <span class="file-name" id="commercialOfferName">Файл не выбран</span>
+                    </div>
+                    <div class="file-list" id="commercialOfferList"></div>
+                </div>
+            </div>
+            
+            <!-- Юридическая информация -->
+            <div class="form-group">
+                <div class="section-title">Юридическая информация</div>
+                
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="legalAddress">Юридический адрес</label>
+                            <input type="text" id="legalAddress" name="legalAddress" required>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="inn">ИНН</label>
+                            <input type="text" id="inn" name="inn" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="kpp">КПП</label>
+                            <input type="text" id="kpp" name="kpp">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="taxSystem">Форма налогообложения</label>
+                            <select id="taxSystem" name="taxSystem" required>
+                                <option value="">Выберите систему налогообложения</option>
+                                <option value="OSN">Общая система (ОСН)</option>
+                                <option value="USN">Упрощенная система (УСН)</option>
+                                <option value="ENVD">Единый налог на вмененный доход (ЕНВД)</option>
+                                <option value="ESHN">Единый сельскохозяйственный налог (ЕСХН)</option>
+                                <option value="PSN">Патентная система (ПСН)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Виды работ -->
+            <div class="form-group">
+                <label for="okvedSearch">Основной вид работ (ОКВЭД)</label>
+                <div class="okved-search">
+                    <input type="text" id="okvedSearch" name="okvedSearch" placeholder="Начните вводить код или название">
+                    <div class="okved-results" id="okvedResults"></div>
+                </div>
+                <input type="hidden" id="okvedCode" name="okvedCode">
+                <input type="hidden" id="okvedName" name="okvedName">
+            </div>
+            
+            <!-- Сотрудничество с ГС-СПБ -->
+            <div class="form-group">
+                <label>Сотрудничество с ГС-СПБ (Excel файлы)</label>
+                <div class="file-upload">
+                    <label for="gsCooperationFile" class="file-label">Добавить файл Excel</label>
+                    <input type="file" id="gsCooperationFile" name="gsCooperationFile" accept=".xlsx,.xls">
+                    <span class="file-name" id="gsCooperationFileName">Файл не выбран</span>
+                </div>
+                <div class="file-list" id="gsCooperationFileList"></div>
+            </div>
+            
+            <button type="submit" class="submit-btn">Сохранить информацию</button>
+            
+            <!-- Дата последнего изменения внизу формы -->
+            <div class="last-updated" id="lastUpdatedText">
+                Дата последнего изменения: не изменялось
+            </div>
+            <input type="hidden" id="lastUpdated" name="lastUpdated">
+            <div id="errorBox" class="error-box" style="display: none;"></div>
+        </form>
+    </div> 
+    <script type="module" src="autorization.js"></script>
+</body>
+</html>
