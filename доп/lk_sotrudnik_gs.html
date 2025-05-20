@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет | Главстрой</title>
+    <link rel="stylesheet" href="lk.css">
+</head>
+<body>
+    <div class="header">
+      <img src="GS SPb-white.png" alt="Главстрой" class="logo">
+        <div class="header-title">Личный кабинет</div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-title">Информация о компании</div>
+            <div class="info-row"><div class="info-label">Полное название:</div><div class="info-value" id="fullName"></div></div>
+            <div class="info-row"><div class="info-label">Сокращённое название:</div><div class="info-value" id="shortName"></div></div>
+            <div class="info-row"><div class="info-label">ИНН:</div><div class="info-value" id="inn"></div></div>
+            <div class="info-row"><div class="info-label">КПП:</div><div class="info-value" id="kpp"></div></div>
+            <div class="info-row"><div class="info-label">Идентификационный номер:</div><div class="info-value" id="companyId"></div></div>
+            <div class="info-row"><div class="info-label">Дата основания:</div><div class="info-value" id="foundationDate"></div></div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Контактное лицо</div>
+            <div class="info-row"><div class="info-label">ФИО:</div><div class="info-value" id="contactPerson"></div></div>
+            <div class="info-row"><div class="info-label">Должность:</div><div class="info-value" id="contactPosition"></div></div>
+            <div class="info-row"><div class="info-label">Email:</div><div class="info-value" id="contactEmail"></div></div>
+            <div class="info-row"><div class="info-label">Телефон:</div><div class="info-value" id="contactPhone"></div></div>
+            <div class="info-row"><div class="info-label">Почтовый адрес:</div><div class="info-value" id="contactAddress"></div></div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Финансовая информация</div>
+            <div class="info-row"><div class="info-label">Выручка за 4 года (файл):</div><div class="info-value" id="revenueFile"></div></div>
+            <div class="info-row"><div class="info-label">Актуальные предложения (файл):</div><div class="info-value" id="commercialOffer"></div></div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Юридическая информация</div>
+            <div class="info-row"><div class="info-label">Юридический адрес:</div><div class="info-value" id="legalAddress"></div></div>
+            <div class="info-row"><div class="info-label">Форма налогообложения:</div><div class="info-value" id="taxForm"></div></div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Основной вид работ (ОКВЭД)</div>
+            <div class="info-row"><div class="info-value" id="okved"></div></div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Сотрудничество с ГС-СПБ</div>
+            <div class="info-row"><div class="info-label">Файл:</div><div class="info-value" id="gsCooperationFile"></div></div>
+        </div>
+    </div>
+
+    <script src="lk.js"></script> <!-- подключаем скомпилированный TypeScript -->
+</body>
+</html>

@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'FontOther';
+    src: url('Gilroy-SemiBold.ttf') format('truetype');
+  }
+
+body {
+    background: #D9E1E2;
+    font-family: 'FontOther';
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background: #D50032;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+.header-title {
+    font-size: 24px;
+}
+
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #005bb9;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.info-label {
+    color: #c0c0c0;
+    font-weight: bold;
+    width: 200px;
+}
+
+.info-value {
+    color: #000;
+    text-align: right;
+    flex: 1;
+    text-wrap: balance;
+}
+
+footer {
+    text-align: center;
+    font-size: 12px;
+    color: #D9E1E2;
+    margin: 20px 0;
+}
+.edit-btn {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.edit-btn:hover {
+    color: darkred;
+}
